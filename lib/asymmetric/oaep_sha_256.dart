@@ -54,8 +54,8 @@ class OAEPSha256Encoding extends BaseAsymmetricBlockCipher {
   Uint8List defHash = Uint8List(SHA256Digest().digestSize);
 
   final AsymmetricBlockCipher _engine;
-  SecureRandom _random = SecureRandom();
-  bool _forEncryption = false;
+  late SecureRandom _random;
+  late bool _forEncryption;
 
   OAEPSha256Encoding(this._engine) {
     SHA256Digest().doFinal(defHash, 0);
